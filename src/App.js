@@ -1,5 +1,5 @@
 import Appbar from "./components/Appbar";
-import NotificationViewer from "./components/Notification";
+import NotificationViewer from "./components/NotificationViewer";
 
 function App() {
   return (
