@@ -32,7 +32,10 @@ function NotificationViewer() {
       {Array.from(feeds)
         .filter((item, index) => index <= 10)
         .map((feed) => (
-          <Notification key={feed.id} data={feed} />
+          <Notification 
+          key={feed.id} 
+          data={feed} 
+          />
         ))}
     </NotificationViewerContainer>
   );
@@ -40,7 +43,7 @@ function NotificationViewer() {
 
 function Notification({ data }) {
   return (
-    <NotificationContainer>
+    <NotificationContainer className={(data.status === "read") ? "recentFeed" : "" }>
       <NotificationAvatar>
         <img src={data.avatar} alt="media" />
         {/* <img src={sample} alt="media" /> */}
