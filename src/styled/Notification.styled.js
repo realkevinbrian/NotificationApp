@@ -38,8 +38,16 @@ export const NotificationContent = styled.div`
 
   div.header {
     display: flex;
-    gap: 10px;
+    gap: 6px;
     flex: 1;
+  }
+
+  span{
+    font-weight: ${({theme})=>theme.Typography.WeightsBold};
+
+    &:hover{
+    color: ${({theme})=>theme.Colors.Blue};
+    }
   }
 
   p{
