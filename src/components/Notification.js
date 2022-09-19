@@ -3,9 +3,11 @@ import {
   NotificationAvatar,
   NotificationContainer,
   NotificationContent,
+  NotificationFooter,
   NotificationViewerContainer,
 } from "../styled/Notification.styled";
 import axios from "axios";
+import sample from "../assets/images/avatar-jacob-thompson.webp"
 
 function NotificationViewer() {
   let [feeds, setFeeds] = useState([]);
@@ -25,27 +27,33 @@ function NotificationViewer() {
       });
   }, []);
 
-  console.log(loading, feeds);
   return (
     <NotificationViewerContainer>
       {Array.from(feeds)
-      .filter((item,index)=> index <= 10)
-      .map((feed) => (
-        <Notification key={feed.id}/>
-      ))}
+        .filter((item, index) => index <= 10)
+        .map((feed) => (
+          <Notification key={feed.id} data={feed} />
+        ))}
     </NotificationViewerContainer>
   );
 }
 
-function Notification(data) {
+function Notification({ data }) {
   return (
     <NotificationContainer>
       <NotificationAvatar>
-        <img src={{}} alt="media" />
+        <img src={data.avatar} alt="media" />
+        {/* <img src={sample} alt="media" /> */}
       </NotificationAvatar>
       <NotificationContent>
-        <strong>{data.from}</strong>
-        <p>{data.text}</p>
+        <div className="header">
+          <strong>{data.author}</strong>
+          <p>{data.subject}</p>
+        </div>
+
+        <NotificationFooter>
+          <small>{data.createdAt}</small>
+        </NotificationFooter>
       </NotificationContent>
     </NotificationContainer>
   );
