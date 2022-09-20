@@ -1,3 +1,8 @@
+/***
+ * Code By Kevin Brian
+ * email : realkevinbrian@gmail.com
+ */
+
 import { useState } from "react";
 import Appbar from "./components/Appbar";
 import NotificationViewer from "./components/NotificationViewer";
