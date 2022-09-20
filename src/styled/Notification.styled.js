@@ -9,6 +9,13 @@ export const NotificationViewerContainer = styled.div`
   .recentFeed {
     background-color: ${({ theme }) => theme.Colors.VeryLightGrayishBlue};
   }
+
+  span.recentFeedDot{
+    width: 7px;
+    height: 7px;
+    background-color: red;
+    border-radius: 50%;
+  }
 `;
 
 export const NotificationContainer = styled.div`
@@ -40,21 +47,30 @@ export const NotificationContent = styled.div`
     display: flex;
     gap: 6px;
     flex: 1;
+    align-items: center
   }
 
-  span{
-    font-weight: ${({theme})=>theme.Typography.WeightsBold};
+  span {
+    font-weight: ${({ theme }) => theme.Typography.WeightsBold};
 
-    &:hover{
-    color: ${({theme})=>theme.Colors.Blue};
+    &:hover {
+      color: ${({ theme }) => theme.Colors.Blue};
     }
   }
 
-  p{
-    color: ${({theme})=>theme.Colors.GrayishBlue};
+  p {
+    color: ${({ theme }) => theme.Colors.GrayishBlue};
     font-size: 16px;
   }
 `;
 export const NotificationFooter = styled.div`
   color: ${({ theme }) => theme.Colors.GrayishBlue};
+`;
+export const NotificationMessagePreview = styled.div`
+  background-color: ${({ theme }) => theme.Colors.LightGrayishBlue1};
+  color: ${({ theme }) => theme.Colors.GrayishBlue};
+  font-weight: ${({ theme }) => theme.Typography.WeightsMedium};
+  padding: 15px;
+  border-radius: 5px;
+  margin: 5px 0;
 `;
