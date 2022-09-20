@@ -45,6 +45,7 @@ export const NotificationContent = styled.div`
 
   div.header {
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
     flex: 1;
     align-items: center

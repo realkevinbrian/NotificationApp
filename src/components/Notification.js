@@ -21,7 +21,7 @@ export function Notification({ data }) {
           <span>{data.author}</span>
           <p>{data.subject}</p>
           <span
-            className={data.status === "read" ? "recentFeedDot" : ""}
+            className={data.status !== "read" ? "recentFeedDot" : ""}
           ></span>
         </div>
 

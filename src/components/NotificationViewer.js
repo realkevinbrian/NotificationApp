@@ -1,38 +1,19 @@
-import React, { useEffect, useState } from "react";
-import {
-  NotificationViewerContainer,
-} from "../styled/Notification.styled";
-import axios from "axios";
-import sample from "../assets/images/avatar-jacob-thompson.webp"
+import React, {  } from "react";
+import { NotificationViewerContainer } from "../styled/Notification.styled";
 import { Notification } from "./Notification";
+import useFetch from "../hooks/useFetch";
 
 function NotificationViewer() {
-  let [feeds, setFeeds] = useState([]);
-  let [loading, isLoading] = useState(false);
-
-  useEffect(() => {
-    isLoading(true);
-    axios
-      .get("db.json")
-      .then((resp) => {
-        isLoading(false);
-        setFeeds(resp.data);
-      })
-      .catch((error) => {
-        isLoading(false);
-        console.log(error);
-      });
-  }, []);
+  const { feeds, loading } = useFetch();
 
   return (
     <NotificationViewerContainer>
+      {loading && <small>Loading</small>}
+      {feeds.length < 0 && <h5>No posts</h5>}
       {Array.from(feeds)
         .filter((item, index) => index <= 10)
         .map((feed) => (
-          <Notification 
-          key={feed.id} 
-          data={feed} 
-          />
+          <Notification key={feed.id} data={feed} />
         ))}
     </NotificationViewerContainer>
   );
