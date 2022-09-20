@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "../hooks/useFetch";
 import { AppbarContainer, AppbarHead, Badge } from "../styled/Appbar.styled";
 
-function Appbar() {
+function Appbar(props) {
   const { feeds, loading } = useFetch();
   return (
     <AppbarContainer>
@@ -13,7 +13,7 @@ function Appbar() {
         </Badge>
       </AppbarHead>
 
-      <button>Mark all as read</button>
+      <button onClick={() => props.action(feeds.length)}>Mark all as read</button>
     </AppbarContainer>
   );
 }
