@@ -20,8 +20,8 @@ export function Notification({ data }) {
         <div className="header">
           <span>{data.author}</span>
           <p>{data.subject}</p>
-          <span 
-          className={data.status === "read" ? "recentFeedDot" : ""}
+          <span
+            className={data.status === "read" ? "recentFeedDot" : ""}
           ></span>
         </div>
 
@@ -30,9 +30,7 @@ export function Notification({ data }) {
         </NotificationFooter>
 
         {data.type === "message" && (
-          <NotificationMessagePreview>
-            {data.text}
-          </NotificationMessagePreview>
+          <NotificationMessagePreview>{data.text}</NotificationMessagePreview>
         )}
       </NotificationContent>
     </NotificationContainer>
